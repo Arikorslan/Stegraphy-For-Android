@@ -1,0 +1,168 @@
+MDScreen:
+    name:"hide_message_screen"   
+    md_bg_color:(39/255,39/255,39/255,1)
+    MDBoxLayout:
+        orientation:"vertical"
+        MDTopAppBar:
+            type:"small"
+            md_bg_color:(39/255,39/255,39/255,1)
+            elevation: 0.5
+
+            MDTopAppBarLeadingButtonContainer:
+                MDActionTopAppBarButton:
+                    icon:"arrow-left"
+                    theme_icon_color:"Custom"
+                    icon_color:1,1,1,1
+                    on_release:app.change_screen("main")
+
+            MDTopAppBarTitle:
+                text:"Hide message"
+
+            MDTopAppBarTrailingButtonContainer:
+                MDActionTopAppBarButton:
+                    icon:"delete"
+                    theme_icon_color:"Custom"
+                    icon_color:1,1,1,1
+                    on_release:app.clear_input(secret_message)
+                MDActionTopAppBarButton:
+                    icon:"file-upload"
+                    theme_icon_color:"Custom"
+                    icon_color:1,1,1,1
+                    on_release:app.select_image_to_encode()
+                MDActionTopAppBarButton:
+                    icon:"content-save"
+                    theme_icon_color:"Custom"
+                    icon_color:1,1,1,1
+                    on_release:app.select_output_path_encode()
+        
+        MDLabel:
+            text:"Select Image and hide your secret message"
+            theme_text_color:"Custom"
+            text_color:1,1,1,1
+            halign:"center"
+            size_hint_y:None
+            height:self.texture_size[1]
+        
+        MDLabel:
+            id:image_src
+            text:""
+            halign:"center"
+            size_hint_y:0.1#,0.4
+            #source:""
+            pos_hint:{"center_x":.5}
+            # on_double_tap:app.select_image_to_encode()
+
+        MDLabel:
+            id:output_path
+            text:"Save location will appear here"
+            theme_text_color:"Custom"
+            text_color:0.8,0.8,0.8,1
+            halign:"center"
+            size_hint_y:None
+            height:self.texture_size[1]
+
+
+
+
+
+        # MDTextField:
+        #     hint_text:"Select Image to use"
+        #     id:image_src
+        #     padding:[12]
+            mode:"outlined"
+        #     size_hint_x:0.8
+        #     pos_hint:{"center_x":.5}
+        #     color_mode:"custom"
+        #     line_color_normal:1,1,1,1
+        #     line_color_focus:1,1,1,1
+        #     error_color:1,0,0,1
+        #     required:True
+        #     icon_right:"image"
+        #     icon_right_color:1,1,1,1
+
+        #     on_text_validate:
+        #         app.show_image(selected_image)
+        #         app.change_screen("image") 
+        #     on_double_tap:app.select_image_to_encode()
+    
+        Widget:
+            size_hint_y:0.1
+        
+        MDTextField:
+            id:secret_message
+            hint_text:"Type your secret message here!"
+            padding:[12]
+            mode:"outlined"
+            size_hint_y:0.8
+            # height:root.height/2
+            multiline:True 
+            size_hint_x:0.8
+            pos_hint:{"center_x":.5}
+            color_mode:"custom"
+            line_color_normal:1,1,1,1
+            line_color_focus:1,1,1,1
+            icon_right:"pen"
+            icon_right_color:1,1,1,1
+        
+
+        Widget:
+            size_hint_y:.1
+
+        MDButton:
+            style:"filled"
+            md_bg_color:72/255,72/255,72/255,1
+            pos_hint:{"center_x":.5}
+            on_release:app.hide_message_dialog()
+            MDButtonIcon:
+                icon:"lock"
+            MDButtonText:
+                text:"Encode And Save"
+        
+        
+        Widget:
+            size_hint_y:.1
+
+
+
+<HideContent>
+    orientation:"vertical"
+    spacing:'12dp'
+    size_hint_y:None 
+    height:"120dp"
+
+    MDLabel:
+        text:""
+        theme_text_color:"Custom"
+        text_color:1,1,1,1
+        halign:"center"
+        size_hint_y:None
+        height:self.texture_size[1]
+
+    Widget:
+        size_hint_y:0.2
+    MDTextField:
+        id:password
+        padding:[10]
+        pos_hint:{"center_x":.5}
+        color_mode:"custom"
+        line_color_normal:1,1,1,1
+        line_color_focus:1,1,1,1
+        error_color:1,0,0,1
+        required:True
+        icon_right:"Key"
+        password:True 
+        mask:"x"
+        icon_right_color:1,1,1,1
+    
+    MDButton:
+        style:"filled"
+        md_bg_color:72/255,72/255,72/255,1
+        on_release:app.hide_message_(password.text)
+        MDButtonText:
+            text:"Proceed"
+
+
+    Widget:
+        size_hint_y:0.2
+
+   

@@ -1,0 +1,240 @@
+MDScreen:
+    md_bg_color:(39/255,39/255,39/255,1)
+    name:"main"
+
+    MDNavigationLayout:
+
+        MDScreenManager:
+            MDScreen:
+                md_bg_color:(39/255,39/255,39/255,1)
+
+                MDBoxLayout:
+                    orientation:"vertical"
+                    spacing:"15dp"
+
+                    MDTopAppBar:
+                        type:"small"
+                        md_bg_color:(39/255,39/255,39/255,1)
+                        theme_text_color:"Custom"
+                        text_color:1,1,1,1
+                        elevation:0
+
+                        MDTopAppBarLeadingButtonContainer:
+                            MDActionTopAppBarButton:
+                                icon:"menu"
+                                theme_icon_color:"Custom"
+                                icon_color:1,1,1,1
+                                on_release:nav.set_state("toggle")
+
+                        MDTopAppBarTitle:
+                            text:"Be Secretive"
+
+                    MDCard:
+                        size_hint: .7,None
+                        radius:[15]
+                        padding:[15]
+                        spacing:"15dp"
+                        height:root.height/4
+                        ripple_scale:5
+                        focus_behavior: True
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: 45/255,45/255,45/255,1
+                        unfocus_color: 45/255,45/255,45/255,1
+                        focus_color:56/255,56/255,56/255,1
+                        elevation: 0.5
+                        orientation:"vertical"
+
+                        Image:
+                            source:"encrypt.png"
+
+                        MDButton:
+                            style:"text"
+                            pos_hint:{"center_x":.5,"center_y":.5}
+                            on_release:app.change_screen("hide_message_screen")
+                            MDButtonText:
+                                text:"Hide Secret Message"
+
+                    MDCard:
+                        size_hint: .7,None
+                        radius:[15]
+                        padding:[15]
+                        spacing:"15dp"
+                        height:root.height/4
+                        ripple_scale:5
+                        focus_behavior: True
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: 45/255,45/255,45/255,1
+                        unfocus_color: 45/255,45/255,45/255,1
+                        focus_color:56/255,56/255,56/255,1
+                        elevation: 0.5
+                        orientation:"vertical"
+
+                        Image:
+                            source:"decrypt.png"
+
+                        MDButton:
+                            style:"text"
+                            pos_hint:{"center_x":.5,"center_y":.3}
+                            on_release:app.change_screen("extract_message_screen")
+                            MDButtonText:
+                                text:"Extract Secret Message"
+
+                    Widget:
+
+                    MDLabel:
+                        text:"Copyright@arikojohn all rights reserved Aug-2026"
+                        font_size:25
+                        bold:True
+                        halign:"center"
+                        size_hint_y:None
+                        height:self.texture_size[1]
+                        theme_text_color:"Custom"
+                        text_color:1,1,1,1
+
+                    MDLabel:
+                        text:"Email us at klint5c@gmail.com"
+                        font_size:18
+                        bold:True
+                        size_hint_y:None
+                        height:self.texture_size[1]
+                        halign:"center"
+                        theme_text_color:"Custom"
+                        text_color:1,1,1,1
+
+        MDNavigationDrawer:
+            id:nav
+            drawer_type:"modal"
+            anchor:"left"
+            radius:[0,20,20,0]
+            #md_bg_color:(39/255,39/255,39/255,1)
+            elevation:0.8
+            md_bg_color:(39/255,39/255,39/255,1)
+        
+            padding:[14,16,12,16]
+
+            MDNavigationDrawerMenu:
+                spacing:"10dp"
+                padding:[0,0,0,"12dp"]
+
+                MDNavigationDrawerHeader:
+                    orientation:"vertical"
+                    padding:["10dp","14dp","10dp","10dp"]
+                    spacing:"8dp"
+                    adaptive_height:True
+
+                    Image:
+                        source:"shield.png"
+                        size_hint_y:None
+                        height:"62dp"
+                        allow_stretch:True
+                        keep_ratio:True
+
+                    MDLabel:
+                        text:"Stegraphy"
+                        theme_text_color:"Custom"
+                        text_color:1,1,1,1
+                        font_size:"30sp"
+                        bold:True
+                        adaptive_height:True
+                        halign:"left"
+                        padding_x:"6dp"
+
+                    MDLabel:
+                        text:"Hide messages in images and stay discrete"
+                        theme_text_color:"Custom"
+                        text_color:1,1,1,1
+                        font_size:"13sp"
+                        adaptive_height:True
+                        halign:"left"
+                        padding_x:"6dp"
+
+                MDNavigationDrawerDivider:
+
+                MDNavigationDrawerItem:
+                    on_release:app.follow_us(); nav.set_state("close")
+                    MDNavigationDrawerItemLeadingIcon:
+                        icon:"twitter"
+                    MDNavigationDrawerItemText:
+                        text:"Follow Us"
+
+                MDNavigationDrawerItem:
+                    on_release:app.email_app(); nav.set_state("close")
+                    MDNavigationDrawerItemLeadingIcon:
+                        icon:"gmail"
+                    MDNavigationDrawerItemText:
+                        text:"Email Us"
+
+                MDNavigationDrawerItem:
+                    on_release:app.show_credits(); nav.set_state("close")
+                    MDNavigationDrawerItemLeadingIcon:
+                        icon:"copyright"
+                    MDNavigationDrawerItemText:
+                        text:"Credits"
+
+                MDNavigationDrawerItem:
+                    on_release:app.share_app(); nav.set_state("close")
+                    MDNavigationDrawerItemLeadingIcon:
+                        icon:"share"
+                    MDNavigationDrawerItemText:
+                        text:"Share App"
+
+                MDNavigationDrawerItem:
+                    on_release:app.show_about(); nav.set_state("close")
+                    MDNavigationDrawerItemLeadingIcon:
+                        icon:"information"
+                    MDNavigationDrawerItemText:
+                        text:"About"
+
+                MDNavigationDrawerItem:
+                    on_release:app.follow_us_github(); nav.set_state("close")
+                    MDNavigationDrawerItemLeadingIcon:
+                        icon:"github"
+                    MDNavigationDrawerItemText:
+                        text:"GitHub"
+
+  
+<AboutContent>:
+    orientation:"vertical"
+    padding:[12]
+    spacing:"12dp"
+    size_hint_y:None 
+    height:"350dp"
+    MDLabel:
+        text:"About\n"
+        bold:True
+        theme_text_color:"Custom"
+        text_color:1,1,1,1
+        halign:"center"
+    Widget:
+        size_hint_y:.5
+    MDLabel:
+        text:'This application was developed to help people be discrete and prevent revealing sensitive data such as secret messages,this app helps hide your secret messages within an image without changing the appearnce of the image\n\nThrough this you can send all kinds of secret messages to your friends and loved ones without anyone ever knowing its a hidden message.'
+        theme_text_color:"Custom"
+        text_color:1,1,1,1
+        # font_size:20
+        halign:"left"
+    
+    Widget:
+
+
+<CreditsContent>:
+    orientation:"vertical"
+    padding:[12]
+    spacing:"12dp"
+    size_hint_y:None 
+    height:"100dp"
+    MDLabel:
+        text:"Credits\n\n"
+        bold:True
+        theme_text_color:"Custom"
+        text_color:1,1,1,1
+        halign:"center"
+    Widget:
+        size_hint_y:.2
+    MDLabel:
+        text:'Icons for this application where obtained from https://www.flaticon.com,\n\nDeveloper:@arikojohn\n'
+        theme_text_color:"Custom"
+        text_color:1,1,1,1
+        halign:"left"
+    
+    Widget:

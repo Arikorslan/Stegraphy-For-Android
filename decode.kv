@@ -1,0 +1,151 @@
+MDScreen:
+    name:"extract_message_screen"   
+    md_bg_color:(39/255,39/255,39/255,1)
+    MDBoxLayout:
+        orientation:"vertical"
+        MDTopAppBar:
+            type:"small"
+            md_bg_color:(39/255,39/255,39/255,1)
+            elevation: 0.5
+
+            MDTopAppBarLeadingButtonContainer:
+                MDActionTopAppBarButton:
+                    icon:"arrow-left"
+                    theme_icon_color:"Custom"
+                    icon_color:1,1,1,1
+                    on_release:app.change_screen("main")
+
+            MDTopAppBarTitle:
+                text:"Extract message"
+
+            MDTopAppBarTrailingButtonContainer:
+                MDActionTopAppBarButton:
+                    icon:"delete"
+                    theme_icon_color:"Custom"
+                    icon_color:1,1,1,1
+                    on_release:app.clear_input(decoded_message)
+                MDActionTopAppBarButton:
+                    icon:"file-upload"
+                    theme_icon_color:"Custom"
+                    icon_color:1,1,1,1
+                    on_release:app.select_image_to_decode()
+        
+        MDLabel:
+            text:"Select Image containing your secret message"
+            theme_text_color:"Custom"
+            text_color:1,1,1,1
+            halign:"center"
+            size_hint_y:None
+            height:self.texture_size[1]
+        
+        MDLabel:
+            id:enc_img
+            text:""
+            halign:"center"
+            size_hint_y:0.1#0.8,0.4
+            pos_hint:{"center_x":.5}
+            # on_double_tap:on_double_tap:app.select_image_to_decode()
+
+
+        # MDTextField:
+        #     id:enc_img
+        #     hint_text:"Select Image to use"
+        #     padding:[12]
+            mode:"outlined"
+        #     size_hint_x:0.8
+        #     pos_hint:{"center_x":.5}
+        #     color_mode:"custom"
+        #     line_color_normal:1,1,1,1
+        #     line_color_focus:1,1,1,1
+        #     error_color:1,0,0,1
+        #     required:True
+        #     icon_right:"image"
+        #     icon_right_color:1,1,1,1
+
+        #     on_text_validate:
+        #         app.show_image(selected_image)
+        #         app.change_screen("image") 
+        #     on_double_tap:on_double_tap:app.select_image_to_decode()
+        
+        Widget:
+            size_hint_y:0.1
+        
+        MDTextField:
+            id:decoded_message
+            hint_text:"Read your secret message here!"
+            padding:[12]
+            mode:"outlined"
+            size_hint_y:0.8
+            # height:root.height/2
+            multiline:True 
+            size_hint_x:0.8
+            pos_hint:{"center_x":.5}
+            color_mode:"custom"
+            line_color_normal:1,1,1,1
+            line_color_focus:1,1,1,1
+            icon_right:"message"
+            icon_right_color:1,1,1,1
+        
+
+        Widget:
+            size_hint_y:.1
+
+        MDButton:
+            style:"filled"
+            md_bg_color:72/255,72/255,72/255,1
+            pos_hint:{"center_x":.5}
+            on_release:app.extract_message_dialog()
+            MDButtonIcon:
+                icon:"key"
+            MDButtonText:
+                text:"Decode Message"
+        
+        
+        Widget:
+            size_hint_y:.1
+
+
+  
+<ExtractContent>
+    orientation:"vertical"
+    # padding:[15]
+    spacing:'12dp'
+    size_hint_y:None 
+    height:"120dp"
+
+    MDLabel:
+        text:"Enter Password"
+        theme_text_color:"Custom"
+        text_color:1,1,1,1
+        halign:"center"
+        size_hint_y:None
+        height:self.texture_size[1]
+
+    Widget:
+        size_hint_y:0.2
+    MDTextField:
+        id:password_
+        padding:[10]
+        pos_hint:{"center_x":.5}
+        color_mode:"custom"
+        line_color_normal:1,1,1,1
+        line_color_focus:1,1,1,1
+        error_color:1,0,0,1
+        required:True
+        icon_right:"Key"
+        password:True 
+        mask:"x"
+        icon_right_color:1,1,1,1
+    
+    MDButton:
+        style:"filled"
+        md_bg_color:72/255,72/255,72/255,1
+        on_release:app.extract_message(password_.text)
+        MDButtonText:
+            text:"Extract Message"
+
+
+    Widget:
+        size_hint_y:0.2
+
+   
