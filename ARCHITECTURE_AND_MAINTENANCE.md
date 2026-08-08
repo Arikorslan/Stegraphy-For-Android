@@ -156,7 +156,7 @@ The KivyMD dependency should remain pinned to a known release instead of a movin
 ### API level
 
 - `android.api = 34` is appropriate for current Android requirements.
-- `android.minapi = 21` keeps the app compatible with older devices while still supporting modern permission behavior.
+- `android.minapi = 24` is required by the current dependency set (notably NumPy in python-for-android builds).
 
 ### Private storage
 
