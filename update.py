@@ -4,8 +4,8 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 APP_VERSION = "0.1.5"
-GITHUB_REPOSITORY = "Arikorslan/SteganographyForWindows"
-GITHUB_REPOSITORY_URL = "https://github.com/Arikorslan/SteganographyForWindows"
+GITHUB_REPOSITORY = "Arikorslan/Stegraphy-For-Android"
+GITHUB_REPOSITORY_URL = "https://github.com/Arikorslan/Stegraphy-For-Android"
 GITHUB_RELEASE_API_URL = f"https://api.github.com/repos/{GITHUB_REPOSITORY}/releases/latest"
 
 
