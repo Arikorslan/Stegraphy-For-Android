@@ -104,7 +104,7 @@ android.permissions = READ_MEDIA_IMAGES,READ_EXTERNAL_STORAGE,INTERNET
 android.api = 34
 
 # (int) Minimum API your APK / AAB will support.
-android.minapi = 21
+android.minapi = 24
 #21
 
 # (int) Android SDK version to use
