@@ -5,8 +5,11 @@ on:
     branches:
       - main
     paths:
-      - "Android-Vaersion/**"
       - ".github/workflows/android.yml"
+      - "**/*.py"
+      - "**/*.kv"
+      - "buildozer.spec"
+      - "*.png"
   workflow_dispatch:
 
 permissions:
@@ -15,10 +18,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-22.04
-
-    defaults:
-      run:
-        working-directory: Android-Vaersion
 
     steps:
       - name: Checkout repository
@@ -61,4 +60,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: android-apk
-          path: Android-Vaersion/bin/*.apk
+          path: bin/*.apk
